@@ -90,7 +90,7 @@ describe('Bytenode', () => {
     });
 
     const testFilePath = path.join(__dirname, TEST_FILE);
-    const outputFile = path.join(tempPath, TEST_FILE.replace('.js', '.jsc'));
+    const outputFile = path.join(tempPath, TEST_FILE.replace('.js', '.catcompile'));
     const loaderFile = path.join(tempPath, TEST_FILE);
 
     it('creates non-zero length binary and loader files', async () => {
@@ -107,9 +107,9 @@ describe('Bytenode', () => {
           }
         });
       });
-      const jscStats = fs.statSync(outputFile);
-      assert.ok(jscStats.isFile(), ".jsc File Doesn't Exist");
-      assert.ok(jscStats.size, 'Zero Length .jsc File');
+      const catcompileStats = fs.statSync(outputFile);
+      assert.ok(catcompileStats.isFile(), ".catcompile File Doesn't Exist");
+      assert.ok(catcompileStats.size, 'Zero Length .catcompile File');
       const loaderStats = fs.statSync(loaderFile);
       assert.ok(loaderStats.isFile(), "Loader File Doesn't Exist");
       assert.ok(loaderStats.size, 'Zero Length Loader File');
@@ -129,9 +129,9 @@ describe('Bytenode', () => {
           }
         });
       });
-      const jscStats = fs.statSync(outputFile);
-      assert.ok(jscStats.isFile(), ".jsc File Doesn't Exist");
-      assert.ok(jscStats.size, 'Zero Length .jsc File');
+      const catcompileStats = fs.statSync(outputFile);
+      assert.ok(catcompileStats.isFile(), ".catcompile File Doesn't Exist");
+      assert.ok(catcompileStats.size, 'Zero Length .catcompile File');
       const loaderStats = fs.statSync(loaderFile);
       assert.ok(loaderStats.isFile(), "Loader File Doesn't Exist");
       assert.ok(loaderStats.size, 'Zero Length Loader File');
@@ -162,7 +162,7 @@ describe('Bytenode', () => {
     });
 
     const testFilePath = path.join(__dirname, TEST_FILE);
-    const outputFile = path.join(tempPath, TEST_FILE.replace('.js', '.jsc'));
+    const outputFile = path.join(tempPath, TEST_FILE.replace('.js', '.catcompile'));
     const loaderFile = path.join(tempPath, TEST_FILE);
 
     it('creates non-zero length binary and loader files', async () => {
@@ -176,15 +176,15 @@ describe('Bytenode', () => {
           }).then(() => resolve()).catch(err => reject(err));
         });
       });
-      const jscStats = fs.statSync(outputFile);
-      assert.ok(jscStats.isFile(), ".jsc File Doesn't Exist");
-      assert.ok(jscStats.size, 'Zero Length .jsc File');
+      const catcompileStats = fs.statSync(outputFile);
+      assert.ok(catcompileStats.isFile(), ".catcompile File Doesn't Exist");
+      assert.ok(catcompileStats.size, 'Zero Length .catcompile File');
       const loaderStats = fs.statSync(loaderFile);
       assert.ok(loaderStats.isFile(), "Loader File Doesn't Exist");
       assert.ok(loaderStats.size, 'Zero Length Loader File');
     });
 
-    it('runs the .jsc file via Electron', async () => {
+    it('runs the .catcompile file via Electron', async () => {
       await assert.doesNotReject(() => {
         return new Promise((resolve, reject) => {
           const electronPath = require('electron');
@@ -196,7 +196,7 @@ describe('Bytenode', () => {
           proc.on('error', (err) => reject(err));
           proc.on('exit', () => resolve());
         });
-      }, 'Rejected While Running .jsc in Electron');
+      }, 'Rejected While Running .catcompile in Electron');
     });
 
     it('creates non-zero length binary and loader files with electron path', async () => {
@@ -211,15 +211,15 @@ describe('Bytenode', () => {
           }).then(resolve).catch(reject);
         });
       });
-      const jscStats = fs.statSync(outputFile);
-      assert.ok(jscStats.isFile(), ".jsc File Doesn't Exist");
-      assert.ok(jscStats.size, 'Zero Length .jsc File');
+      const catcompileStats = fs.statSync(outputFile);
+      assert.ok(catcompileStats.isFile(), ".catcompile File Doesn't Exist");
+      assert.ok(catcompileStats.size, 'Zero Length .catcompile File');
       const loaderStats = fs.statSync(loaderFile);
       assert.ok(loaderStats.isFile(), "Loader File Doesn't Exist");
       assert.ok(loaderStats.size, 'Zero Length Loader File');
     });
 
-    it('runs the .jsc file via Electron', async () => {
+    it('runs the .catcompile file via Electron', async () => {
       await assert.doesNotReject(() => {
         return new Promise((resolve, reject) => {
           const electronPath = require('electron');
@@ -231,7 +231,7 @@ describe('Bytenode', () => {
           proc.on('error', (err) => reject(err));
           proc.on('exit', () => resolve());
         });
-      }, 'Rejected While Running .jsc in Electron');
+      }, 'Rejected While Running .catcompile in Electron');
     });
 
     after(() => {

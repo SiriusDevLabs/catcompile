@@ -29,4 +29,6 @@ export declare function addLoaderFile(fileToLoad: string, loaderFilename?: strin
 
 export declare function loaderCode(targetPath: string): string;
 
+export declare function changeExtension(extension: string): void;
+
 export { };
